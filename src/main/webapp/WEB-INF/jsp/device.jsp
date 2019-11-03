@@ -24,7 +24,11 @@
     <tbody>
     <c:forEach var="sensorDto" items="${device.sensors}">
         <tr>
-            <td>${sensorDto.number}</td>
+            <td>
+                <a href="../sensor/${device.id}/${sensorDto.number}">
+                    ${sensorDto.number}
+                </a>
+            </td>
             <td>${sensorDto.name}</td>
             <td>${sensorDto.unitOfMeasure.fullName}</td>
         </tr>

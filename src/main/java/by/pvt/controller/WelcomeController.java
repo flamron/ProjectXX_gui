@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("/welcome")
+//@RequestMapping("/")
 public class WelcomeController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, value = "/")
     public String welcome(Model model, Principal principal) {
         String name;
         if (principal == null) name = "anonymous";

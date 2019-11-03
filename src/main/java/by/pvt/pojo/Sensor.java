@@ -41,7 +41,7 @@ public class Sensor implements Serializable {
     private UnitOfMeasure unitOfMeasure;
 
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "id.sensor", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "id.sensor")
     @MapKey(name = "id.localDateTime")
     private Map<LocalDateTime, SensorValue> values = new HashMap<>();
 

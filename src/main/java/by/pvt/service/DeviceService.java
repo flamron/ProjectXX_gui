@@ -1,7 +1,7 @@
 package by.pvt.service;
 
 import by.pvt.dto.DeviceDto;
-import by.pvt.dto.SensorDto;
+import by.pvt.dto.SensorSimpleDto;
 import by.pvt.pojo.Device;
 import by.pvt.pojo.Sensor;
 import by.pvt.repository.DeviceRepository;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -56,7 +55,7 @@ public class DeviceService {
                     .serialNumber(device.getSerialNumber())
                     .deviceType(device.getDeviceType())
                     .deviceModel(device.getDeviceModel())
-                    .sensors(getSensorDtoListFromDevice(device))
+                    .sensors(getSensorSimpleDtoListFromDevice(device))
                     .observationPoint(device.getObservationPoint())
                     .build();
             return Optional.of(dto);
@@ -66,12 +65,12 @@ public class DeviceService {
         }
     }
 
-    List<SensorDto> getSensorDtoListFromDevice(Device device) {
+    private List<SensorSimpleDto> getSensorSimpleDtoListFromDevice(Device device) {
         Set<Map.Entry<Byte, Sensor>> entries = device.getSensorsMap().entrySet();
-        List<SensorDto> result = new ArrayList<>(entries.size());
+        List<SensorSimpleDto> result = new ArrayList<>(entries.size());
         for (Map.Entry<Byte, Sensor> entry : entries) {
             Sensor sensor = entry.getValue();
-            SensorDto dto = SensorDto.builder()
+            SensorSimpleDto dto = SensorSimpleDto.builder()
                     .name(sensor.getName())
                     .number(entry.getKey())
                     .unitOfMeasure(sensor.getUnitOfMeasure())

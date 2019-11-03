@@ -10,13 +10,13 @@
 <body>
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link active" href="${pageContext.request.contextPath}/home">Home</a>
+        <a class="nav-link active" href="${pageContext.request.contextPath}/">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/product-catalog">Product Catalog</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/points">Points</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/add-product">Add Product</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/devices">Devices</a>
     </li>
     <sec:authorize access="!isAuthenticated()">
         <li class="nav-item">

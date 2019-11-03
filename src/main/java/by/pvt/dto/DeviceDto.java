@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder
@@ -16,6 +15,6 @@ public class DeviceDto {
     private String serialNumber;
     private DeviceType deviceType;
     private DeviceModel deviceModel;
-    private List<SensorDto> sensors;
+    private List<SensorSimpleDto> sensors;
     private ObservationPoint observationPoint;
 }
