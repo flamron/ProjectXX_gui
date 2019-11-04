@@ -46,9 +46,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/add-product*")
+                .antMatchers("/device/*")
                     .hasRole("USER")
-                .antMatchers(HttpMethod.POST, "/add-product")
+                .antMatchers("/sensor/*")
                     .hasRole("USER")
                 .and()
                     .formLogin()

@@ -1,69 +1,72 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <jsp:include page="gChart.jsp"/>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Hello, world!</title>
-</head>
-<body>
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link active" href="${pageContext.request.contextPath}/">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/points">Points</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/devices">Devices</a>
-    </li>
-    <sec:authorize access="!isAuthenticated()">
-        <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/registration">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
-        </li>
-    </sec:authorize>
-    <sec:authorize access="isAuthenticated()">
-        <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
-        </li>
-    </sec:authorize>
-</ul>
-<form class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/search">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search-str">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
+<jsp:include page="header.jsp"/>
+<jsp:include page="gChart.jsp"/>
 
-<h5>Сенсор</h5>
-<a href="../../device/${sensor.deviceId}">Вернуться к прибору</a>
-<p>Номер: ${sensor.number}</p>
-<p>Имя: ${sensor.name}</p>
-<p>Единицы измерения: ${sensor.unitOfMeasure.shortName} (${sensor.unitOfMeasure.fullName})</p>
+<div class="row justify-content-center">
 
-<div id="curve_chart" style="width: 900px; height: 500px"></div>
+    <div class="row">
+        <div class="col">
+            <div  class="bg-light rounded">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Сенсор</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Номер</th>
+                            <td>${sensor.number}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Имя</th>
+                            <td>${sensor.name}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Единицы измерения:</th>
+                            <td>${sensor.unitOfMeasure.shortName} (${sensor.unitOfMeasure.fullName})</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <a href="../../device/${sensor.deviceId}">Вернуться к прибору</a>
+                            </th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-<table class="table">
-    <caption>Данные</caption>
-    <thead>
-    <tr>
-        <th scope="col">Дата</th>
-        <th scope="col">Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="entry" items="${sensor.values}">
-        <tr>
-            <td>${entry.key}</td>
-            <td>${entry.value.value}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+    <div class="row">
+
+        <div class="col">
+            <div id="curve_chart" style="width: 900px; height: 500px"></div>
+        </div>
+
+
+
+    <div class="col-2">
+        <table class="table">
+            <caption>Данные</caption>
+            <thead>
+            <tr>
+                <th scope="col">Дата</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="entry" items="${sensor.values}">
+                <tr>
+                    <td>${entry.key}</td>
+                    <td>${entry.value.value}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
 
 <jsp:include page="footer.jsp"/>

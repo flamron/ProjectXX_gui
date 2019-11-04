@@ -1,10 +1,13 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <jsp:include page="header.jsp"/>
 
-<h1>Hello, ${username}!</h1>
+<div class="row justify-content-center">
+    <div>
+        <h1>Hello, ${username}!</h1>
 
-<div>
-    <p>Текущее время: <%= new java.util.Date() %></p>
+        <p>Текущее время: <%= new java.util.Date() %></p>
+    </div>
+
 </div>
 
 <jsp:include page="footer.jsp"/>

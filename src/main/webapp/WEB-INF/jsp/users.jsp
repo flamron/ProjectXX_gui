@@ -2,9 +2,10 @@
 <jsp:include page="header.jsp"/>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
-<h1>Пользователи:</h1>
+<div class="row justify-content-center">
 
 <table class="table">
+    <caption>Пользователи</caption>
     <thead>
     <tr>
         <th scope="col">Email</th>
@@ -23,6 +24,6 @@
         </tr>
     </c:forEach>
     </tbody>
-</table>1
+</table>
 
 <jsp:include page="footer.jsp"/>

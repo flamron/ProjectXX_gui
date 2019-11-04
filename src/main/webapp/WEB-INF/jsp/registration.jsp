@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="header.jsp"/>
 
+<div class="row justify-content-center">
 <h1>Register new user</h1>
 
 <form action="${pageContext.request.contextPath}/registration" method="POST">
@@ -27,5 +28,6 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
 
 <jsp:include page="footer.jsp"/>

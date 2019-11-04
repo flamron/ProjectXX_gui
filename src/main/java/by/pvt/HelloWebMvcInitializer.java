@@ -41,4 +41,5 @@ public class HelloWebMvcInitializer implements ServletContainerInitializer {
         characterEncoding.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
 
     }
+
 }
