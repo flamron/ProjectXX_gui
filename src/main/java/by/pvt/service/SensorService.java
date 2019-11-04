@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeMap;
 
 
 @Service
@@ -37,9 +38,9 @@ public class SensorService {
         if (sensorOptional.isPresent()) {
             Sensor sensor = sensorOptional.get();
 
-            int recommendedCapacity = (int)(sensor.getValues().size() / 0.75 ) + 1;
-            HashMap<LocalDateTime, SensorValue> values = new HashMap<>(recommendedCapacity);
-            values.putAll(sensor.getValues());
+            //int recommendedCapacity = (int)(sensor.getValues().size() / 0.75 ) + 1;
+            TreeMap<LocalDateTime, SensorValue> values = new TreeMap<>(sensor.getValues());
+            //values.putAll(sensor.getValues());
 
             SensorDto dto = SensorDto.builder()
                     .deviceId(deviceId)
