@@ -13,8 +13,8 @@
         ]);
 
         var options = {
-            title: 'Company Performance',
-            curveType: 'function',
+            title: 'Values',
+            curveType: 'values',
             legend: { position: 'bottom' }
         };
 

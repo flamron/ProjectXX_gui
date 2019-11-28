@@ -1,1 +1,0 @@
-DELETE FROM `employee_repository_test`.`productcatalogitem`;

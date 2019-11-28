@@ -5,8 +5,6 @@ import by.pvt.dto.SensorSimpleDto;
 import by.pvt.pojo.Device;
 import by.pvt.pojo.Sensor;
 import by.pvt.repository.DeviceRepository;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +14,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.logging.Logger;
 
 
 @Service
 public class DeviceService {
 
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = Logger.getLogger("DeviceService");
 
     @Autowired
     DeviceRepository deviceRepository;

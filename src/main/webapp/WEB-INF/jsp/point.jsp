@@ -8,7 +8,7 @@
             <tbody>
             <tr>
                 <th scope="row">Пункт наблюдения</th>
-                <td></td>
+                <td>${point.fullName}</td>
             </tr>
             <tr>
                 <th scope="row">Пункт наблюдения</th>

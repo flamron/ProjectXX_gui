@@ -2,8 +2,6 @@ package by.pvt.repository;
 
 import by.pvt.pojo.Device;
 import by.pvt.pojo.Sensor;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +9,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Repository
 public class SensorRepository {
 
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = Logger.getLogger("SensorRepository");
 
     @Autowired
     SessionFactory sessionFactory;
